@@ -1,0 +1,15 @@
+ssh admin1@kube-m01 'echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections'
+ssh admin1@kube-m01 'echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections'
+ssh admin1@kube-m01 'sudo apt update && sudo apt -y upgrade'
+ssh admin1@kube-m01 'echo yes |sudo apt install -y curl apt-transport-https git iptables-persistent mc htop iotop locate'
+
+
+ssh admin1@kube-w01 'echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections'
+ssh admin1@kube-w01 'echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections'
+ssh admin1@kube-w01 'sudo apt update && sudo apt -y upgrade'
+ssh admin1@kube-w01 'echo yes |sudo apt install -y curl apt-transport-https git iptables-persistent mc htop iotop locate'
+
+ssh admin1@kube-w02 'echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections'
+ssh admin1@kube-w02 'echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections'
+ssh admin1@kube-w02 'sudo apt update && sudo apt -y upgrade'
+ssh admin1@kube-w02 'echo yes |sudo apt install -y curl apt-transport-https git iptables-persistent mc htop iotop locate'

@@ -1,0 +1,14 @@
+ssh admin1@kube-m01 'curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -'
+ssh admin1@kube-m01 'echo  "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list'
+ssh admin1@kube-m01 'sudo apt update'
+ssh admin1@kube-m01 'sudo apt -y install kubelet kubeadm kubectl'
+
+ssh admin1@kube-w01 'curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -'
+ssh admin1@kube-w01 'echo  "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list'
+ssh admin1@kube-w01 'sudo apt update'
+ssh admin1@kube-w01 'sudo apt -y install kubelet kubeadm kubectl'
+
+ssh admin1@kube-w02 'curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -'
+ssh admin1@kube-w02 'echo  "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list'
+ssh admin1@kube-w02 'sudo apt update'
+ssh admin1@kube-w02 'sudo apt -y install kubelet kubeadm kubectl'

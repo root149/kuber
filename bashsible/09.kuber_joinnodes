@@ -1,0 +1,7 @@
+JOIN_CMD=$( ssh admin1@kube-m01 'sudo kubeadm token create --print-join-command' )
+JOIN_CMD="sudo "${JOIN_CMD}
+
+ssh admin1@kube-w01 ${JOIN_CMD}
+ssh admin1@kube-w02 ${JOIN_CMD}
+
+

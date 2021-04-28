@@ -1,0 +1,8 @@
+ssh admin1@kube-m01 'sudo iptables -I INPUT 1 -p tcp --match multiport --dports 6443,2379:2380,10250:10252 -j ACCEPT'
+ssh admin1@kube-m01 'sudo netfilter-persistent save'
+
+ssh admin1@kube-w01 'sudo iptables -I INPUT 1 -p tcp --match multiport --dports 10250,30000:32767 -j ACCEPT'
+ssh admin1@kube-w01 'sudo netfilter-persistent save'
+
+ssh admin1@kube-w02 'sudo iptables -I INPUT 1 -p tcp --match multiport --dports 10250,30000:32767 -j ACCEPT'
+ssh admin1@kube-w02 'sudo netfilter-persistent save'

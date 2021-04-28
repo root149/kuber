@@ -1,0 +1,11 @@
+ssh admin1@kube-m01 'sudo swapoff -a'
+ssh admin1@kube-m01 'sudo sed -i "/[/]swap.img/ s/^/#/" /etc/fstab'
+ssh admin1@kube-m01 'sudo rm /swap.img'
+
+ssh admin1@kube-w01 'sudo swapoff -a'
+ssh admin1@kube-w01 'sudo sed -i "/[/]swap.img/ s/^/#/" /etc/fstab'
+ssh admin1@kube-w01 'sudo rm /swap.img'
+
+ssh admin1@kube-w02 'sudo swapoff -a'
+ssh admin1@kube-w02 'sudo sed -i "/[/]swap.img/ s/^/#/" /etc/fstab'
+ssh admin1@kube-w02 'sudo rm /swap.img'
