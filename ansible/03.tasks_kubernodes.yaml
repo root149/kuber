@@ -1,0 +1,24 @@
+---
+- hosts: kube_worknodes
+  remote_user: admin1
+  become: yes
+  become_user: root
+  tasks:
+   - name: config ip tables worknodes
+     shell: 'iptables -I INPUT 1 -p tcp --match multiport --dports 10250,30000:32767 -j ACCEPT'
+     async: 1
+     poll: 0
+
+   - name: copy join command
+     ansible.builtin.copy:
+       src: ./join_cmd
+       dest: /tmp/join_cmd
+       owner: root
+       group: root
+       mode: '0700'
+
+   - name: join to cluster
+     shell: '/tmp/join_cmd'
+
+
+

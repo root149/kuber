@@ -1,0 +1,9 @@
+- hosts: kube_worknodes
+  remote_user: admin1
+  become: yes
+  become_user: root
+  tasks:
+
+  - name: reboot worknodes
+    reboot:
+      reboot_timeout: 36000

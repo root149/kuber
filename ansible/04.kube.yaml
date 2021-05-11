@@ -1,0 +1,10 @@
+- hosts: kube_masters,kube_worknodes
+  remote_user: admin1
+  become: yes
+  become_user: root
+  tasks:
+   - name: save ip tables config
+     shell: 'netfilter-persistent save'
+     async: 1
+     poll: 0
+

@@ -1,0 +1,25 @@
+---
+- hosts: kube_masters
+  remote_user: admin1
+  become: yes
+  become_user: root
+  tasks:
+   - name: config ip tables masters
+     shell: "iptables -I INPUT 1 -p tcp --match multiport --dports 6443,2379:2380,10250:10252 -j ACCEPT"
+
+   - name: init kube
+     shell: "kubeadm init --pod-network-cidr=10.244.0.0/16"
+
+   - name: init flanel
+     shell: "kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml"
+
+   - name: get join cmd
+     shell: " kubeadm token create --print-join-command >/join_cmd"
+
+   - name: Store join cmd
+     ansible.builtin.fetch:
+       src: /join_cmd
+       dest: /tmp/join_cmd
+       flat: yes
+
+

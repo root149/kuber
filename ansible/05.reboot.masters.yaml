@@ -1,0 +1,9 @@
+- hosts: kube_masters
+  remote_user: admin1
+  become: yes
+  become_user: root
+  tasks:
+
+   - name: Reboot immediately if there was a change.
+     reboot:
+       reboot_timeout: 36000

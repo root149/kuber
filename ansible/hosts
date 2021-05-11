@@ -1,0 +1,5 @@
+[kube_masters]
+kube-m01 ansible_ssh_host=192.168.5.100 ansible_ssh_user=admin1
+[kube_worknodes]
+kube-w01 ansible_ssh_host=192.168.5.101 ansible_ssh_user=admin1
+kube-w02 ansible_ssh_host=192.168.5.102 ansible_ssh_user=admin1
