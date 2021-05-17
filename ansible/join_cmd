@@ -1,1 +1,0 @@
-kubeadm join 192.168.5.100:6443 --token uzenv5.kdr9pagp8n8w25u5 --discovery-token-ca-cert-hash sha256:e641e4e5283233af5cdb43f63462ce5fa5fb71e5ed6f975e4fe736c6dd1346c1 
