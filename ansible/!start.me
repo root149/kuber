@@ -1,8 +1,8 @@
 rm -f /tmp/joun_cmd
 ansible-playbook -i hosts 02.update_install.yaml && \
 ansible-playbook -i hosts 03.tasks_kubermaster.yaml && \
-ansible-playbook -i hosts 03.tasks_kubernodes.yaml  
-#&& \
-#ansible-playbook -i hosts 04.kube.yaml && \
-#ansible-playbook -i hosts 05.reboot.masters.yaml && \
-#ansible-playbook -i hosts 05.reboot.nodes.yaml
+ansible-playbook -i hosts 03.tasks_kubernodes.yaml && \
+ansible-playbook -i hosts 04.kube.yaml && \
+ansible-playbook -i hosts 05.reboot.masters.yaml && \
+ansible-playbook -i hosts 05.reboot.nodes.yaml
+

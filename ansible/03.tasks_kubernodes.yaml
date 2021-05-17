@@ -11,7 +11,7 @@
 
    - name: copy join command
      ansible.builtin.copy:
-       src: ./join_cmd
+       src: /tmp/join_cmd
        dest: /tmp/join_cmd
        owner: root
        group: root
